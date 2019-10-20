@@ -1,0 +1,4 @@
+= Hilfsskripte für die jQAssistant Entwicklung
+
+Nichts besonderes. Später vielleicht mal ein halbes Dutzend von Hilfsskripten
+für die Arbeit an http://www.jQAssistant.org[jQAssistant^].
