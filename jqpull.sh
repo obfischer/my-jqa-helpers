@@ -15,7 +15,7 @@ do
     echo
 
     pushd ~/code/jqa/${subproject}
-    git pull -r
+    git pull -r || exit 1
     popd
 done
 

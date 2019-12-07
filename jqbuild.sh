@@ -17,9 +17,9 @@ do
     pushd ~/code/jqa/${subproject}
 
     if [[ -z "$@" ]]; then
-        mvn clean install || exit 1
+        ( mvn clean install ) || exit 1
     else
-        mvn $@ || exit 1
+        ( mvn $@ ) || exit 1
     fi
     popd
 done

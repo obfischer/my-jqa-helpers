@@ -15,7 +15,7 @@ do
     echo
 
     pushd ~/code/jqa/${subproject}
-    git fetch --all --tags --prune-tags
+    git fetch --all --tags --prune-tags || exit 1
     popd
 done
 

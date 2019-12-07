@@ -15,7 +15,7 @@ do
     echo
 
     pushd ~/code/jqa/${subproject}
-    git push --all --verbose
+    git push --all --verbose || exit 1
     popd
 done
 
