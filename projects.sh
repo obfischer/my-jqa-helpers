@@ -1,5 +1,4 @@
 subprojects=(
-    jqa-asciidoc-report-plugin
     jqa-uber-parent
     jqa-own-constraints
     jqa-checkstyle-config
@@ -8,6 +7,7 @@ subprojects=(
     jqa-core-framework
     jqa-plugin-parent
     jqa-plugin-common
+    jqa-asciidoc-report-plugin
     jqa-xml-plugin
     jqa-java-plugin
     jqa-yaml-plugin
