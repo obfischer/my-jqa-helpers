@@ -27,6 +27,7 @@ subprojects=(
     jqa-m2repo-plugin
     jqa-json-plugin
     jqa-graphml-plugin
+    jqa-graphql-plugin
     jqa-spring-plugin
     jqa-distribution-specification
     jqa-maven-plugin
