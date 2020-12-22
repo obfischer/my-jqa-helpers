@@ -13,7 +13,6 @@ subprojects=(
     jqa-yaml-plugin
     jqa-yaml2-plugin
     jqa-junit-plugin
-    jqa-java8-plugin
     jqa-jpa2-plugin
     jqa-jaxrs-plugin
     jqa-cdi-plugin
