@@ -16,6 +16,9 @@ do
 
     pushd ~/code/jqa/${subproject}
     idea .
+    
+    read -p "Mit Enter weiter" -s -n 1
+    
     popd
 done
 
