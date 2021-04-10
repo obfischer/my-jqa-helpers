@@ -14,12 +14,11 @@ do
     echo "${GREEN}###${RESET}"
     echo
 
-    pushd ~/code/jqa/${subproject}
 
     if [[ -z "$@" ]]; then
-        ( mvn -P IT clean install ) || exit 1
+        ( set -x ; mvn -P IT clean install ) || exit 1
     else
-        ( mvn $@ ) || exit 1
+        ( set -x; mvn $@ ) || exit 1
     fi
     popd
 done
