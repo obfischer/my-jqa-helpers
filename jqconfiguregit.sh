@@ -14,7 +14,7 @@ do
     echo "${GREEN}###${RESET}"
     echo
 
-    pushd ~/code/jqa/${subproject}
+    pushd ${subproject}
     configure-git-private || exit 1
     popd
 done

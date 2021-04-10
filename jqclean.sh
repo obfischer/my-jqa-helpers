@@ -14,7 +14,7 @@ do
     echo "${GREEN}###${RESET}"
     echo
 
-    pushd ~/code/jqa/${subproject}
+    pushd ${subproject}
 
     if [[ -z "$@" ]]; then
         ( mvn clean ) || exit 1

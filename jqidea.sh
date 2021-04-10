@@ -14,7 +14,8 @@ do
     echo "${GREEN}###${RESET}"
     echo
 
-    pushd ~/code/jqa/${subproject}
+    pushd ${subproject}
+
     idea .
     
     read -p "Mit Enter weiter" -s -n 1
