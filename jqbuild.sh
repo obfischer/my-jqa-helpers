@@ -14,6 +14,7 @@ do
     echo "${GREEN}###${RESET}"
     echo
 
+    pushd ${subproject}
 
     if [[ -z "$@" ]]; then
         ( set -x ; mvn -P IT clean install ) || exit 1
