@@ -13,6 +13,7 @@ do
     stagedChanges=0;
     onlyModified=0;
     untracked=$(git ls-files --other --exclude-standard | wc -l | xargs)
+    branch=$(git branch 2>/dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/")
 
     # Wie viele Einträge in der Git-Stash-Hölle?
     stashes=$(git stash list | wc -l | sed -e 's/[[:space:]]//g' )
@@ -28,18 +29,25 @@ do
     # Jetzt wird es bunt!
 
     if [[ ${onlyModified} == 1 ]];
-    then modifiedToken="${txtred}M";
-    else modifiedToken="${txtgrn}M"; fi
+    then modifiedColor="${RED}";
+    else modifiedColor="${GREEN}"; fi
 
     if [[ ${untracked} -gt 0 ]];
-    then untrackedToken="${txtred}U";
-    else untrackedToken="${txtgrn}U"; fi
+    then untrackedColor="${RED}";
+    else untrackedColor="${GREEN}"; fi
 
     if [[ ${stagedChanges} == 1 ]];
-    then stagedToken="${txtred}S";
-    else stagedToken="${txtgrn}S"; fi
+    then stagedColor="${RED}";
+    else stagedColor="${GREEN}"; fi
 
-    printf "%50s\tStaged %4s\tModified %4s\tUntracked %4s\tStash %2s\n" ${subproject} ${stagedChanges} ${onlyModified} ${untracked} ${stashes}
+    if [[ ${stashes} -gt 0 ]];
+    then stashedColor="${RED}";
+    else stashedColor="${GREEN}"; fi
+
+    printf "%50s\tStaged %4s\tModified %4s\tUntracked %4s\tStash %2s \t%s\n" \
+      ${subproject} ${stagedColor}${stagedChanges}${RESET} \
+      ${modifiedColor}${onlyModified}${RESET} ${untrackedColor}${untracked}${RESET} \
+      ${stashedColor}${stashes}${RESET} ${branch}
     popd >/dev/null
 done
 
