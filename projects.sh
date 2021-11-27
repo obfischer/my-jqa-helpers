@@ -1,5 +1,6 @@
 subprojects=(
     jqa-uber-parent
+    jqa-bom
     jqa-own-constraints
     jqa-checkstyle-config
     jqa-asciidoctor-utilities
