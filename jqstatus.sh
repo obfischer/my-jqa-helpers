@@ -14,6 +14,7 @@ do
     onlyModified=0;
     untracked=$(git ls-files --other --exclude-standard | wc -l | xargs)
     branch=$(git branch 2>/dev/null | sed -e "/^[^*]/d" -e "s/* \(.*\)/\1/")
+    javaversion=$(jenv version | cut -f 1 -d " ")
 
     # Wie viele Einträge in der Git-Stash-Hölle?
     stashes=$(git stash list | wc -l | sed -e 's/[[:space:]]//g' )
@@ -44,10 +45,10 @@ do
     then stashedColor="${RED}";
     else stashedColor="${GREEN}"; fi
 
-    printf "%50s\tStaged %4s\tModified %4s\tUntracked %4s\tStash %2s \t%s\n" \
+    printf "%50s\tStaged %4s\tModified %4s\tUntracked %4s\tStash %2s \t%s\t\tJava %s\n" \
       ${subproject} ${stagedColor}${stagedChanges}${RESET} \
       ${modifiedColor}${onlyModified}${RESET} ${untrackedColor}${untracked}${RESET} \
-      ${stashedColor}${stashes}${RESET} ${branch}
+      ${stashedColor}${stashes}${RESET} ${branch} ${javaversion}
     popd >/dev/null
 done
 
